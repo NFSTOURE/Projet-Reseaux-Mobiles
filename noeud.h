@@ -1,29 +1,27 @@
 #ifndef NOEUD_H_INCLUDED
 #define NOEUD_H_INCLUDED
 #include "point.h"
+#include <Qvector>
 
-#include <osmium/osm/types.hpp>
-#include <string>
-#include <osmium/osm.hpp> // Assurez-vous d'avoir la bonne biblioth�que OSM
-
-class Noeud {
+class noeud {
 private:
-    osmium::object_id_type id;
+    long long id;
     double latitude;
     double longitude;
+    QVector<noeud> noeudsVoisins;
 
 public:
-    Noeud(osmium::object_id_type id, double lat, double lon);
+    noeud(long long id, double lat, double lon);
 
     // Getters
-    osmium::object_id_type getId() const;
+    long long getId() const;
     double getLatitude() const;
     double getLongitude() const;
     point getCoordonnees() const;
 
     double X_lambert93() const;
     double Y_lambert93() const;
-
+    QVector<noeud> getNoeudsVoisins() const;
 
 
 };

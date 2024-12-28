@@ -1,42 +1,37 @@
-#ifndef ARETE_H_INCLUDED
-#define ARETE_H_INCLUDED
-
-
+#ifndef ARETE_H
+#define ARETE_H
 #include "noeud.h"
-#include <cmath>
-#include <string>
-using namespace std;
+#include <Qstring>
 
-class Arete {
+class arete
+{
 private:
-    Noeud* debut;
-    Noeud* fin;
-    string id;   // ID de l'ar�te provenant de OSM
-    string type; // Type de route (autoroute, nationale, etc.)
+    noeud* debut;
+    noeud* fin;
+    QString id;   // ID de l'ar�te provenant de OSM
+    QString type; // Type de route (autoroute, nationale, etc.)
 
 public:
-    Arete(Noeud* debut, Noeud* fin);
+    arete(noeud* debut=nullptr, noeud* fin=nullptr);
 
-    Noeud* getDebut() const;
-    void setDebut(Noeud* newDebut);
+    noeud* getDebut() const;
+    void setDebut(noeud* newDebut);
 
-    Noeud* getFin() const;
-    void setFin(Noeud* newFin);
+    noeud* getFin() const;
+    void setFin(noeud* newFin);
 
     double getDistance() const;
 
     //void calculerDistance();// M�thode pour calculer la distance entre les n�uds
     double getDistanceLambert93() const;
 
-    string getId() const;
-    void setId(const string& newId);
+    QString getId() const;
+    void setId(const QString& newId);
 
-   string getType() const;
-    void setType(const string& newType);
+    QString getType() const;
+    void setType(const QString& newType);
 
 
 };
 
-
-
-#endif // ARETE_H_INCLUDED
+#endif // ARETE_H
