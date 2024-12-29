@@ -1,14 +1,14 @@
 #ifndef NOEUD_H_INCLUDED
 #define NOEUD_H_INCLUDED
+
+#include <QVector>
 #include "point.h"
-#include <Qvector>
 
 class noeud {
 private:
     long long id;
     double latitude;
     double longitude;
-    QVector<noeud> noeudsVoisins;
 
 public:
     noeud(long long id, double lat, double lon);
@@ -19,13 +19,9 @@ public:
     double getLongitude() const;
     point getCoordonnees() const;
 
+    // Projection en Lambert 93
     double X_lambert93() const;
     double Y_lambert93() const;
-    QVector<noeud> getNoeudsVoisins() const;
-
-
 };
-
-
 
 #endif // NOEUD_H_INCLUDED
